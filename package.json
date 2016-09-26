@@ -1,0 +1,23 @@
+{
+  "name": "hubot-github-command",
+  "version": "0.0.1",
+  "description": "Command GitHub in Hubot.",
+  "main": "index.coffee",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/minaduking/hubot-github-command.git"
+  },
+  "keywords": [
+    "hubot",
+    "github"
+  ],
+  "author": "minaduking",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/minaduking/hubot-github-command/issues"
+  },
+  "homepage": "https://github.com/minaduking/hubot-github-command#readme"
+}
