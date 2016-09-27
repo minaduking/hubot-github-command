@@ -1,1 +1,1 @@
-module.exports.GITHUB_URL="https://api.github.com/"
+exports.GITHUB_URL="https://api.github.com/"

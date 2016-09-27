@@ -1,5 +1,6 @@
 util = require('./util')
 
-class window.User
- getURL: ->
-   util.GITHUB_URL
+class User
+  getURL: ->
+    util.GITHUB_URL
+exports.User = User
