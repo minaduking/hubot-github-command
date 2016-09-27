@@ -5,4 +5,3 @@ User = ()->
    util.GITHUB_URL
 
 module.exports = User
-
