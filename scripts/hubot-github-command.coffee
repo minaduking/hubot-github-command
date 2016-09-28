@@ -73,7 +73,7 @@ module.exports = (robot)->
         class_name = ChangeCase.pascalCase file_name
         robot.logger.info class_name
         eval(class_name + ' = ' + require(file))
-        robot.logger.info eval(class_name + ' = ' + require(file))
+        robot.logger.info eval(class_name + ' = ' + require('./lib/' + file))
 
   # user = new User(robot)
 
