@@ -71,7 +71,7 @@ module.exports = (robot)->
         if file != 'util.coffee'
           file_name = file.replace(/.coffee/g, "").split('-').join(' ')
           class_name = ChangeCase.pascalCase file_name
-          required_str = class_name + ' = require(./lib/' + file + ')'
+          required_str = class_name + ' = require("./lib/' + file + '")'
           robot.logger.info required_str
           eval(required_str)
 
