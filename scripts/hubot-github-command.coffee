@@ -75,4 +75,5 @@ module.exports = (robot)->
           robot.logger.info required_str
           eval(required_str)
 
-
+  user = new User(robot)
+  robot.logger.info user
