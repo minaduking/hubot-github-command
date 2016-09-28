@@ -72,7 +72,7 @@ module.exports = (robot)->
         robot.logger.info file_name
         file_name = file_name.split '_'
         robot.logger.info file_name
-        file_name = file_name.join('')
+        file_name = file_name.join(' ')
         robot.logger.info file_name
         class_name = ChangeCase.pascalCase file_name
         robot.logger.info class_name
