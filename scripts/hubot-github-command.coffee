@@ -74,7 +74,9 @@ module.exports = (robot)->
     if file != 'util.coffee'
       file_name = file.replace(/.coffee/g, "")
       class_name = ChangeCase.pascalCase file_name.split('-').join(' ')
-      eval(file_name + ' = new '+ class_name + '(' + robot + ')')
+      run_str = file_name + ' = new '+ class_name + '(' + robot + ')'
+      robot.logger.info run_str
+      eval(run_str)
       robot.logger.info eval(file_name)
 
   user = new User(robot)
