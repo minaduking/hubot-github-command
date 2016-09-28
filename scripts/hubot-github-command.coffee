@@ -70,15 +70,12 @@ module.exports = (robot)->
       for file in Fs.readdirSync(path)
         if file != 'util.coffee'
           file_name = file.replace(/.coffee/g, "").split('-').join(' ')
-          robot.logger.info file_name
           class_name = ChangeCase.pascalCase file_name
-          robot.logger.info class_name
           eval(class_name + ' = ' + require('./lib/' + file))
-          robot.logger.info eval(class_name + ' = ' + require('./lib/' + file))
 
-  # user = new User(robot)
+  user = new User(robot)
 
   robot.logger.info 'hubot-github start'
   robot.logger.info 'https://api.github.com/orgs/some_private/repos?access_token='+access_token
-  # robot.logger.info user
+  robot.logger.info user
 
