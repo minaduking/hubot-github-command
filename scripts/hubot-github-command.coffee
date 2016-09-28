@@ -75,9 +75,9 @@ module.exports = (robot)->
         eval(class_name + ' = ' + require(file))
         robot.logger.info eval(class_name + ' = ' + require(file))
 
-  user = new User(robot)
+  # user = new User(robot)
 
   robot.logger.info 'hubot-github start'
   robot.logger.info 'https://api.github.com/orgs/some_private/repos?access_token='+access_token
-  robot.logger.info user
+  # robot.logger.info user
 
