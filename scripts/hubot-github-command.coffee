@@ -56,13 +56,21 @@
 # User = require('./lib/user')
 # UserEmail = require('./lib/user_email')
 # UserFollower = require('./lib/user_follower')
-autoload(__dirname + 'lib')
+Fs = require 'fs'
+Path = require 'path'
+  
 
 module.exports = (robot)->
   access_token = process.env.HUBOT_GITHUB_COMMAND_ACCESS_TOKEN
   username = process.env.HUBOT_GITHUB_COMMAND_USERNAME
 
-  user = new User(robot)
+  path = Path.resolve --dirname, 'lib'
+  Fs.exists path, (exists)->
+    if exists
+      for file in Fs.readdirSync(path)
+        robot.logger.info file
+
+  # user = new User(robot)
 
   robot.logger.info 'hubot-github start'
   robot.logger.info 'https://api.github.com/orgs/some_private/repos?access_token='+access_token
