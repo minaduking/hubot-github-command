@@ -59,7 +59,6 @@
 Fs = require 'fs'
 Path = require 'path'
 ChangeCase = require 'change-case' 
-define = Object.defineProperty
 
 path = Path.resolve __dirname, 'lib'
 Fs.exists path, (exists)->
@@ -67,7 +66,7 @@ Fs.exists path, (exists)->
     for file in Fs.readdirSync(path)
       file_name = file.replace(/.coffee/g, "").split('-').join(' ')
       class_name = ChangeCase.pascalCase file_name
-      define(class_name, '', {enumerable: true, get: ()-> require(file)})
+      eval(class_name + '= require('+file+')')
 
 
 module.exports = (robot)->
