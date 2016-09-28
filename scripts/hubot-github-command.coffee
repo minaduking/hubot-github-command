@@ -68,12 +68,13 @@ module.exports = (robot)->
   Fs.exists path, (exists)->
     if exists
       for file in Fs.readdirSync(path)
-        file_name = file.replace(/.coffee/g, "").split('-').join(' ')
-        robot.logger.info file_name
-        class_name = ChangeCase.pascalCase file_name
-        robot.logger.info class_name
-        eval(class_name + ' = ' + require('./lib/' + file))
-        robot.logger.info eval(class_name + ' = ' + require('./lib/' + file))
+        if file != 'util.coffee'
+          file_name = file.replace(/.coffee/g, "").split('-').join(' ')
+          robot.logger.info file_name
+          class_name = ChangeCase.pascalCase file_name
+          robot.logger.info class_name
+          eval(class_name + ' = ' + require('./lib/' + file))
+          robot.logger.info eval(class_name + ' = ' + require('./lib/' + file))
 
   # user = new User(robot)
 
