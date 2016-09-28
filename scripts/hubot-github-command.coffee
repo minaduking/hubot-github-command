@@ -66,7 +66,7 @@ Fs.exists path, (exists)->
     for file in Fs.readdirSync(path)
       file_name = file.replace(/.coffee/g, "").split('-').join(' ')
       class_name = ChangeCase.pascalCase file_name
-      eval(class_name + '= require('+file+')')
+      eval(class_name + ' = ' + require(file))
 
 
 module.exports = (robot)->
