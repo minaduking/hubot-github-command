@@ -71,11 +71,9 @@ module.exports = (robot)->
         if file != 'util.coffee'
           file_name = file.replace(/.coffee/g, "").split('-').join(' ')
           class_name = ChangeCase.pascalCase file_name
-          eval(class_name + ' = ' + require('./lib/' + file))
+          required_str = class_name + ' = require(./lib/' + file + ')'
+          robot.logger.info required_str
+          required_str = eval(required_str)
+          robot.logger.info required_str
 
-  user = new User(robot)
-
-  robot.logger.info 'hubot-github start'
-  robot.logger.info 'https://api.github.com/orgs/some_private/repos?access_token='+access_token
-  robot.logger.info user
 
