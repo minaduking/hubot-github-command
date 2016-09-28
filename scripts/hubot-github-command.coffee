@@ -70,7 +70,9 @@ module.exports = (robot)->
       for file in Fs.readdirSync(path)
         file_name = file.replace /.coffee/g, ""
         robot.logger.info file_name
-        file_name = file_name.split('_').join
+        file_name = file_name.split '_'
+        robot.logger.info file_name
+        file_name = file_name.join('')
         robot.logger.info file_name
         class_name = ChangeCase.pascalCase file_name
         robot.logger.info class_name
