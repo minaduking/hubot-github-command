@@ -60,15 +60,13 @@ Fs = require 'fs'
 Path = require 'path'
 ChangeCase = require 'change-case' 
 path = Path.resolve __dirname, 'lib'
-Fs.exists path, (exists)->
-  if exists
-    for file in Fs.readdirSync(path)
-      if file != 'util.coffee'
-        file_name = file.replace(/.coffee/g, "")
-        class_name = ChangeCase.pascalCase file_name.split('-').join(' ')
-        required_str = class_name + ' = require("./lib/' + file + '")'
-        console.log required_str
-        eval(required_str)
+for file in Fs.readdirSync(path)
+  if file != 'util.coffee'
+    file_name = file.replace(/.coffee/g, "")
+    class_name = ChangeCase.pascalCase file_name.split('-').join(' ')
+    required_str = class_name + ' = require("./lib/' + file + '")'
+    console.log required_str
+    eval(required_str)
 
 
 module.exports = (robot)->
