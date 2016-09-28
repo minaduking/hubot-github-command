@@ -59,19 +59,23 @@
 Fs = require 'fs'
 Path = require 'path'
 ChangeCase = require 'change-case' 
-path = Path.resolve __dirname, 'lib'
-for file in Fs.readdirSync(path)
+for file in Fs.readdirSync(Path.resolve(__dirname, 'lib'))
   if file != 'util.coffee'
     file_name = file.replace(/.coffee/g, "")
     class_name = ChangeCase.pascalCase file_name.split('-').join(' ')
-    required_str = class_name + ' = require("./lib/' + file + '")'
-    console.log required_str
-    eval(required_str)
+    eval(class_name + ' = require("./lib/' + file + '")')
 
 
 module.exports = (robot)->
   access_token = process.env.HUBOT_GITHUB_COMMAND_ACCESS_TOKEN
   username = process.env.HUBOT_GITHUB_COMMAND_USERNAME
+
+  for file in Fs.readdirSync(Path.resolve(__dirname, 'lib'))
+    if file != 'util.coffee'
+    file_name = file.replace(/.coffee/g, "")
+    class_name = ChangeCase.pascalCase file_name.split('-').join(' ')
+    eval(file_name = ' = new '+ class_name + '(' + robot + ')')
+    robot.logger.info eval(file_name)
 
   user = new User(robot)
   robot.logger.info user
