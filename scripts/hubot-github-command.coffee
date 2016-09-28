@@ -64,11 +64,9 @@ path = Path.resolve __dirname, 'lib'
 Fs.exists path, (exists)->
   if exists
     for file in Fs.readdirSync(path)
-      file_name = file.replace /.coffee/g, ""
-      file_name = file_name.split '_'
-      file_name = file_name.join(' ')
+      file_name = file.replace(/.coffee/g, "").split('-').join(' ')
       class_name = ChangeCase.pascalCase file_name
-      `class_name` = require file
+      require(class_name)
 
 
 module.exports = (robot)->
