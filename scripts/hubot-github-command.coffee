@@ -58,11 +58,13 @@
 # UserFollower = require('./lib/user_follower')
 Fs = require 'fs'
 Path = require 'path'
-  
+ChangeCase = require 'change-case' 
 
 module.exports = (robot)->
   access_token = process.env.HUBOT_GITHUB_COMMAND_ACCESS_TOKEN
   username = process.env.HUBOT_GITHUB_COMMAND_USERNAME
+
+  robot.logger.info ChangeCase.pascalCase 'user email'
 
   path = Path.resolve __dirname, 'lib'
   Fs.exists path, (exists)->
