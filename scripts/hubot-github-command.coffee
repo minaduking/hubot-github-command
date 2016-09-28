@@ -64,7 +64,7 @@ module.exports = (robot)->
   access_token = process.env.HUBOT_GITHUB_COMMAND_ACCESS_TOKEN
   username = process.env.HUBOT_GITHUB_COMMAND_USERNAME
 
-  path = Path.resolve --dirname, 'lib'
+  path = Path.resolve __dirname, 'lib'
   Fs.exists path, (exists)->
     if exists
       for file in Fs.readdirSync(path)
