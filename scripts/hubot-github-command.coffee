@@ -59,6 +59,7 @@
 Fs = require 'fs'
 Path = require 'path'
 ChangeCase = require 'change-case' 
+define = Object.defineProperty
 
 path = Path.resolve __dirname, 'lib'
 Fs.exists path, (exists)->
