@@ -21,6 +21,6 @@
   },
   "homepage": "https://github.com/minaduking/hubot-github-command#readme",
   "dependencies": {
-    "auto-load"
+    "auto-load": "2.1.0"
   }
 }
