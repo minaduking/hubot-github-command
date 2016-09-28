@@ -64,16 +64,14 @@ module.exports = (robot)->
   access_token = process.env.HUBOT_GITHUB_COMMAND_ACCESS_TOKEN
   username = process.env.HUBOT_GITHUB_COMMAND_USERNAME
 
-  robot.logger.info ChangeCase.pascalCase 'user email'
-
   path = Path.resolve __dirname, 'lib'
   Fs.exists path, (exists)->
     if exists
       for file in Fs.readdirSync(path)
-        robot.logger.info file
-
-  # user = new User(robot)
+        file_name = file.replace /.coffee/g, ""
+        file_name = file_name.split('_').join
+        class_name = ChangeCase.pascalCase file_name
+        robot.logger.info class_name
 
   robot.logger.info 'hubot-github start'
   robot.logger.info 'https://api.github.com/orgs/some_private/repos?access_token='+access_token
-  # robot.logger.info user
