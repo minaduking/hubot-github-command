@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/minaduking/hubot-github-command/issues"
   },
-  "homepage": "https://github.com/minaduking/hubot-github-command#readme"
+  "homepage": "https://github.com/minaduking/hubot-github-command#readme",
+  "dependencies": {
+    "auto-load"
+  }
 }
