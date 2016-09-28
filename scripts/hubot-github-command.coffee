@@ -73,7 +73,6 @@ module.exports = (robot)->
           class_name = ChangeCase.pascalCase file_name
           required_str = class_name + ' = require(./lib/' + file + ')'
           robot.logger.info required_str
-          required_str = eval(required_str)
-          robot.logger.info required_str
+          eval(required_str)
 
 
